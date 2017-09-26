@@ -18,7 +18,7 @@ class CustomHeaderView: UIView {
     
     
     init(frame:CGRect,title: String) {
-        self.titleLabel.text = title.uppercaseString
+        self.titleLabel.text = title.uppercased()
         super.init(frame: frame)
         setUpView()
     }
@@ -27,7 +27,7 @@ class CustomHeaderView: UIView {
     }
     
     func setUpView() {
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(imageView)
@@ -37,19 +37,19 @@ class CustomHeaderView: UIView {
         self.addSubview(colorView)
         
         let constraints:[NSLayoutConstraint] = [
-            imageView.topAnchor.constraintEqualToAnchor(self.topAnchor),
-            imageView.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor),
-            imageView.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor),
-            imageView.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor),
-            colorView.topAnchor.constraintEqualToAnchor(self.topAnchor),
-            colorView.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor),
-            colorView.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor),
-            colorView.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor)
+            imageView.topAnchor.constraint(equalTo: self.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            colorView.topAnchor.constraint(equalTo: self.topAnchor),
+            colorView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            colorView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            colorView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ]
-        NSLayoutConstraint.activateConstraints(constraints)
+        NSLayoutConstraint.activate(constraints)
         
         imageView.image = UIImage(named: "testBackground")
-        imageView.contentMode = .ScaleAspectFill
+        imageView.contentMode = .scaleAspectFill
         
         colorView.backgroundColor = bgColor
         colorView.alpha = 0.6
@@ -58,25 +58,25 @@ class CustomHeaderView: UIView {
         self.addSubview(titleLabel)
         
         let titlesConstraints:[NSLayoutConstraint] = [
-            titleLabel.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor),
-            titleLabel.topAnchor.constraintEqualToAnchor(self.topAnchor, constant: 28),
+            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 28),
         ]
-        NSLayoutConstraint.activateConstraints(titlesConstraints)
+        NSLayoutConstraint.activate(titlesConstraints)
         
-        titleLabel.font = UIFont.systemFontOfSize(15)
-        titleLabel.textAlignment = .Center
+        titleLabel.font = UIFont.systemFont(ofSize: 15)
+        titleLabel.textAlignment = .center
         
         articleIcon = UIImageView()
         articleIcon.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(articleIcon)
         
         let imageConstraints:[NSLayoutConstraint] = [
-            articleIcon.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor),
-            articleIcon.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor, constant: 6),
-            articleIcon.widthAnchor.constraintEqualToConstant(40),
-            articleIcon.heightAnchor.constraintEqualToConstant(40)
+            articleIcon.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            articleIcon.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 6),
+            articleIcon.widthAnchor.constraint(equalToConstant: 40),
+            articleIcon.heightAnchor.constraint(equalToConstant: 40)
         ]
-        NSLayoutConstraint.activateConstraints(imageConstraints)
+        NSLayoutConstraint.activate(imageConstraints)
         
         articleIcon.image = UIImage(named: "article")
 
